@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.ShopMapper">
+
+    <select id="query" resultType="Shop">
+        select * from shop
+    </select>
+
+    <select id="queryBy" resultType="Shop">
+        select * from shop where shop_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Shop">
+        insert into shop(
+                            shop_id,
+                            shop_name,
+                            shop_head,
+                            shop_QRcode)
+                            values(
+                                   #{shop_id},
+                                   #{shop_name},
+                                   #{shop_head},
+                                   #{shop_QRcode})
+    </insert>
+
+    <update id="update_shop_name" parameterType="Shop">
+        update shop set shop_name=#{name}where shop_id=#{id}
+    </update>
+
+    <update id="update_shop_head" parameterType="Shop">
+        update shop set shop_head=#{head}where shop_id=#{id}
+    </update>
+
+    <update id="update_shop_QRcode" parameterType="Shop">
+        update shop set shop_QRcode=#{QRcode}where shop_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from shop where shop_id=#{id}
+    </delete>
+
+</mapper>

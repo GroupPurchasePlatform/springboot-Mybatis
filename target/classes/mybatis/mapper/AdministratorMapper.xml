@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.AdministratorMapper">
+
+    <select id="query" resultType="Administrator">
+        select * from administrator
+    </select>
+
+    <select id="queryById" resultType="Administrator">
+        select * from administrator where administrator_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Administrator">
+        insert into administrator(
+            administrator_id,
+            administrator_password)
+        values(
+            #{administrator_id},
+            #{administrator_password})
+    </insert>
+
+    <update id="update_administrator_password" parameterType="Administrator">
+        update administrator set administrator_password=#{psw} where administrator_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from administrator where administrator_id=#{id}
+    </delete>
+
+</mapper>

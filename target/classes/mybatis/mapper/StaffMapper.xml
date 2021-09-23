@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.StaffMapper">
+
+    <select id="query" resultType="Staff">
+        select * from staff_information
+    </select>
+
+    <select id="queryByEnterpriseId" resultType="Staff">
+        select * from staff where enterprise_id=#{id}
+    </select>
+
+    <select id="queryByStaffId" resultType="Staff">
+        select * from staff where staff_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Staff">
+        insert into staff(
+            staff_id,
+            enterprise_id,
+            staff_name,
+            staff_password,
+            staff_nickname,
+            staff_head,
+            staff_phoneNumber,
+            staff_address,
+            staff_card)
+        values(
+            #{staff_id},
+            #{enterprise_id},
+            #{staff_name},
+            #{staff_password},
+            #{staff_nickname},
+            #{staff_head},
+            #{staff_phoneNumber},
+            #{staff_address},
+            #{staff_card})
+    </insert>
+
+    <update id="update_enterprise_id" parameterType="Staff">
+        update staff set enterprise_id=#{enterprise_id} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_name" parameterType="Staff">
+        update staff set staff_name=#{name} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_password" parameterType="Staff">
+        update staff set staff_password=#{psw} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_nickname" parameterType="Staff">
+        update staff set staff_nickname=#{nickname} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_head" parameterType="Staff">
+        update staff set staff_head=#{head} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_phoneNumber" parameterType="Staff">
+        update staff set staff_phoneNumber=#{phoneNumber} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_address" parameterType="Staff">
+        update staff set staff_address=#{address} where staff_id=#{id}
+    </update>
+
+    <update id="update_staff_card" parameterType="Staff">
+        update staff set staff_card=#{card} where staff_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from staff where staff_id=#{id}
+    </delete>
+
+</mapper>

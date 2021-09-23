@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.ConsumerOrderMapper">
+
+    <select id="query" resultType="ConsumerOrder">
+        select * from consumerorder
+    </select>
+
+    <select id="queryByOrderId" resultType="ConsumerOrder">
+        select * from consumerorder where order_id=#{id}
+    </select>
+
+    <select id="queryByProductId" resultType="ConsumerOrder">
+        select * from consumerorder where product_id=#{id}
+    </select>
+
+    <select id="queryByConsumerId" resultType="ConsumerOrder">
+        select * from consumerorder where consumer_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="ConsumerOrder">
+        insert into consumerorder(
+            order_id,
+            product_id,
+            consumer_id,
+            consumer_nickname,
+            consumer_phoneNumber,
+            consumer_address,
+            order_date,
+            order_totalMoney,
+            order_status,
+            order_payment,
+            order_comment)
+        values(
+            #{order_id},
+            #{product_id},
+            #{consumer_id},
+            #{consumer_nickname},
+            #{consumer_phoneNumber},
+            #{consumer_address},
+            #{order_date},
+            #{order_totalMoney},
+            #{order_status},
+            #{order_payment},
+            #{order_comment})
+    </insert>
+
+    <update id="update_consumer_nickname" parameterType="ConsumerOrder">
+        update consumerorder set consumer_nickname=#{nickname} where order_id=#{id}
+    </update>
+
+    <update id="update_consumer_phoneNumber" parameterType="ConsumerOrder">
+        update consumerorder set consumer_phoneNumber=#{phoneNumber} where order_id=#{id}
+    </update>
+
+    <update id="update_consumer_address" parameterType="ConsumerOrder">
+        update consumerorder set consumer_address=#{address} where order_id=#{id}
+    </update>
+
+    <update id="update_order_status" parameterType="ConsumerOrder">
+        update consumerorder set consumer_status=#{status} where order_id=#{id}
+    </update>
+
+    <update id="update_order_comment" parameterType="ConsumerOrder">
+        update consumerorder set consumer_comment=#{comment} where order_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from consumerorder where order_id=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.ShoppingCartMapper">
+
+    <select id="query" resultType="ShoppingCart">
+        select * from shoppingcart
+    </select>
+
+    <select id="queryBy" resultType="ShoppingCart">
+        select * from shoppingcart where consumer_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="ShoppingCart">
+        insert into shoppingcart(
+            consumer_id,
+            product_id,
+            product_name,
+            product_price,
+            product_num,
+            product_surfacePlot)
+                            values(
+                                   #{consumer_id},
+                                   #{product_id},
+                                   #{product_name},
+                                   #{product_price},
+                                   #{product_num},
+                                   #{product_surfacePlot})
+    </insert>
+
+    <update id="update_product_name" parameterType="ShoppingCart">
+        update shoppingcart set product_name=#{name} where product_id=#{product_id}
+    </update>
+
+    <update id="update_product_price" parameterType="ShoppingCart">
+        update shoppingcart set product_price=#{price} where product_id=#{product_id}
+    </update>
+
+
+    <update id="update_product_num" parameterType="ShoppingCart">
+        update shoppingcart set product_num=#{num} where consumer_id=#{consumer_id} and product_id=#{product_id}
+    </update>
+
+    <update id="update_product_surfacePlot" parameterType="ShoppingCart">
+        update shoppingcart set product_surfacePlot=#{surfacePlot} where product_id=#{id}
+    </update>
+
+    <delete id="deleteShoppingCart" parameterType="int">
+        delete from shoppingcart where consumer_id=#{id}
+    </delete>
+
+    <delete id="deleteShoppingCartProduct" parameterType="int">
+        delete from shoppingcart where consumer_id=#{consumer_id} and product_id=#{product_id}
+    </delete>
+</mapper>

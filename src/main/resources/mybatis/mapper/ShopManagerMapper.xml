@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.ShopManagerMapper">
+
+    <select id="query" resultType="ShopManager">
+        select * from shopmanager
+    </select>
+
+    <select id="queryByShop" resultType="ShopManager">
+        select * from shopmanager where shop_id=#{id}
+    </select>
+
+    <select id="queryById" resultType="ShopManager">
+        select * from shopmanager where shopManager_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="ShopManager">
+        insert into shopmanager(
+            shopManager_id,
+            shop_id,
+            shopManager_password)
+        values(
+            #{shopManager_id},
+            #{shop_id},
+            #{shopManager_password})
+    </insert>
+
+    <update id="update_shopManager_password" parameterType="ShopManager">
+        update shopmanager set shopManager_password=#{psw} where shopManager_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from shopmanager where shopManager_id=#{id}
+    </delete>
+
+</mapper>

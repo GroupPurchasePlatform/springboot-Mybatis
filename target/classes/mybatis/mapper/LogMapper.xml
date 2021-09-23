@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.LogMapper">
+
+    <select id="query" resultType="Log">
+        select * from log
+    </select>
+
+    <select id="queryByLogId" resultType="Log">
+        select * from log where log_id=#{id}
+    </select>
+
+    <select id="queryByAdministratorId" resultType="Log">
+        select * from log where administrator_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Log">
+        insert into log(
+            log_id,
+            administrator_id,
+            log_type,
+            log_content,
+            log_date)
+        values(
+            #{log_id},
+            #{administrator_id},
+            #{log_type},
+            #{log_content},
+            #{log_date})
+    </insert>
+
+    <delete id="deleteLogByLogId" parameterType="int">
+        delete from log where log_id=#{log_id}
+    </delete>
+
+    <delete id="deleteLogByAdministratorId" parameterType="int">
+        delete from log where administrator_id=#{administrator_id}
+    </delete>
+
+    <delete id="deleteLogByAdministratorIdAndLogId" parameterType="int">
+        delete from log where administrator_id=#{administrator_id} and log_id=#{log_id}
+    </delete>
+
+</mapper>
