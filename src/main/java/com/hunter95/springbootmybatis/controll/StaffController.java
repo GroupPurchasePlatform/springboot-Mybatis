@@ -42,7 +42,7 @@ public class StaffController {
     public String addStaff(){
         staffMapper.insert(new Staff(
                 "1001",
-                "浙江工业大学",
+                1,
                 "zhangsan",
                 "123456",
                 "xiaozhang",

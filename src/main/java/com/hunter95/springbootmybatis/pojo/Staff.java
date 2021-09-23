@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Staff {
 
     private String staff_id;
-    private String enterprise_name;
+    private int enterprise_id;
     private String staff_name;
     private String staff_password;
     private String staff_nickname;

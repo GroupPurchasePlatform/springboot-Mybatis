@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginMessage {
-    public String State;
-    public String Token;
+    private String State;
+    private String Token;
+
 }
