@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.StaffOrderMapper">
+
+    <select id="query" resultType="StaffOrder">
+        select * from stafforder
+    </select>
+
+    <select id="queryByStaffOrderId" resultType="StaffOrder">
+        select * from stafforder where order_id=#{id}
+    </select>
+
+    <select id="queryByStaffProductId" resultType="StaffOrder">
+        select * from stafforder where product_id=#{id}
+    </select>
+
+    <select id="queryByStaffId" resultType="StaffOrder">
+        select * from stafforder where staff_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="StaffOrder">
+        insert into stafforder(
+            order_id,
+            product_id,
+            staff_id,
+            staff_nickname,
+            staff_phoneNumber,
+            staff_address,
+            order_date,
+            order_totalMoney,
+            order_status,
+            order_payment,
+            order_comment)
+        values(
+            #{order_id},
+            #{product_id},
+            #{staff_id},
+            #{staff_nickname},
+            #{staff_phoneNumber},
+            #{staff_address},
+            #{order_date},
+            #{order_totalMoney},
+            #{order_status},
+            #{order_payment},
+            #{order_comment})
+    </insert>
+
+    <update id="update_staff_nickname" parameterType="StaffOrder">
+        update stafforder set staff_nickname=#{nickname} where order_id=#{id}
+    </update>
+
+    <update id="update_staff_phoneNumber" parameterType="StaffOrder">
+        update stafforder set staff_phoneNumber=#{phoneNumber} where order_id=#{id}
+    </update>
+
+    <update id="update_staff_address" parameterType="StaffOrder">
+        update stafforder set staff_address=#{address} where order_id=#{id}
+    </update>
+
+    <update id="update_order_status" parameterType="StaffOrder">
+        update stafforder set staff_status=#{status} where order_id=#{id}
+    </update>
+
+    <update id="update_order_comment" parameterType="StaffOrder">
+        update stafforder set staff_comment=#{comment} where order_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from stafforder where order_id=#{id}
+    </delete>
+
+</mapper>

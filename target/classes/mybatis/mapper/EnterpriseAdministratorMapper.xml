@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.EnterpriseAdministratorMapper">
+
+    <select id="query" resultType="EnterpriseAdministrator">
+        select * from enterpriseadministrator
+    </select>
+
+    <select id="queryByEnterprise" resultType="EnterpriseAdministrator">
+        select * from enterpriseadministrator where enterprise_id=#{id}
+    </select>
+
+    <select id="queryById" resultType="EnterpriseAdministrator">
+        select * from enterpriseadministrator where enterpriseAdministrator_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="EnterpriseAdministrator">
+        insert into enterpriseadministrator(
+            enterpriseAdministrator_id,
+            enterprise_id,
+            enterpriseAdministrator_password)
+        values(
+            #{enterpriseAdministrator_id},
+            #{enterprise_id},
+            #{enterpriseAdministrator_password})
+    </insert>
+
+    <update id="update_enterpriseAdministrator_password" parameterType="EnterpriseAdministrator">
+        update enterpriseadministrator set enterpriseAdministrator_password=#{psw} where enterpriseAdministrator_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from enterpriseadministrator where enterpriseAdministrator_id=#{id}
+    </delete>
+
+</mapper>

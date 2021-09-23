@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.hunter95.springbootmybatis.SpringbootMybatisApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.038 s <<< FAILURE! - in com.hunter95.springbootmybatis.SpringbootMybatisApplicationTests
+contextLoads  Time elapsed: 5.249 s  <<< ERROR!
+java.sql.SQLException: Access denied for user 'csc'@'localhost' (using password: YES)
+	at com.hunter95.springbootmybatis.SpringbootMybatisApplicationTests.contextLoads(SpringbootMybatisApplicationTests.java:18)
+

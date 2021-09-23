@@ -1,0 +1,14 @@
+package com.hunter95.springbootmybatis.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Administrator {
+    private String administrator_id;
+    private String administrator_password;
+
+}

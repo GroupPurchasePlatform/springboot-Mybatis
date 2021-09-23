@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.ConsumerMapper">
+
+    <select id="query" resultType="Consumer">
+        select * from consumer
+    </select>
+    
+    <select id="queryByConsumerId" resultType="Consumer">
+        select * from consumer where consumer_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Consumer">
+        insert into consumer(
+            consumer_id,
+            consumer_name,
+            consumer_password,
+            consumer_nickname,
+            consumer_head,
+            consumer_phoneNumber,
+            consumer_address)
+        values(
+            #{consumer_id},
+            #{consumer_name},
+            #{consumer_password},
+            #{consumer_nickname},
+            #{consumer_head},
+            #{consumer_phoneNumber},
+            #{consumer_address})
+    </insert>
+    
+
+    <update id="update_consumer_name" parameterType="Consumer">
+        update consumer set consumer_name=#{name} where consumer_id=#{id}
+    </update>
+
+    <update id="update_consumer_password" parameterType="Consumer">
+        update consumer set consumer_password=#{psw} where consumer_id=#{id}
+    </update>
+
+    <update id="update_consumer_nickname" parameterType="Consumer">
+        update consumer set consumer_nickname=#{nickname} where consumer_id=#{id}
+    </update>
+
+    <update id="update_consumer_head" parameterType="Consumer">
+        update consumer set consumer_head=#{head} where consumer_id=#{id}
+    </update>
+
+    <update id="update_consumer_phoneNumber" parameterType="Consumer">
+        update consumer set consumer_phoneNumber=#{phoneNumber} where consumer_id=#{id}
+    </update>
+
+    <update id="update_consumer_address" parameterType="Consumer">
+        update consumer set consumer_address=#{address} where consumer_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from consumer where consumer_id=#{id}
+    </delete>
+
+</mapper>

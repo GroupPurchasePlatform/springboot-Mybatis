@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter95.springbootmybatis.mapper.ProductMapper">
+
+    <select id="query" resultType="Product">
+        select * from product
+    </select>
+
+    <select id="queryBy" resultType="Product">
+        select * from product where product_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="Product">
+        insert into product(
+                            product_id,
+                            shop_id,
+                            product_name,
+                            product_price,
+                            product_status,
+                            product_inventory,
+                            product_type,
+                            product_specification,
+                            product_descript,
+                            product_surfacePlot,
+                            product_slideshow,
+                            product_isComment,
+                            product_QRcode)
+                            values(
+                                   #{product_id},
+                                   #{shop_id},
+                                   #{product_name},
+                                   #{product_price},
+                                   #{product_status},
+                                   #{product_inventory},
+                                   #{product_type},
+                                   #{product_specification},
+                                   #{product_descript},
+                                   #{product_surfacePlot},
+                                   #{product_slideshow},
+                                   #{product_isComment},
+                                   #{product_QRcode})
+    </insert>
+
+    <update id="update_product_name" parameterType="Product">
+        update product set product_name=#{name}where product_id=#{id}
+    </update>
+
+    <update id="update_product_price" parameterType="Product">
+        update product set product_price=#{price}where product_id=#{id}
+    </update>
+
+    <update id="update_product_status" parameterType="Product">
+        update product set product_status=#{status}where product_id=#{id}
+    </update>
+
+    <update id="update_product_inventory" parameterType="Product">
+        update product set product_inventory=#{inventory}where product_id=#{id}
+    </update>
+
+    <update id="update_product_type" parameterType="Product">
+        update product set product_type=#{type}where product_id=#{id}
+    </update>
+
+    <update id="update_product_specification" parameterType="Product">
+        update product set product_specification=#{specification}where product_id=#{id}
+    </update>
+
+    <update id="update_product_descript" parameterType="Product">
+        update product set product_descript=#{descript}where product_id=#{id}
+    </update>
+
+    <update id="update_product_surfacePlot" parameterType="Product">
+        update product set product_surfacePlot=#{surfacePlot}where product_id=#{id}
+    </update>
+
+    <update id="update_product_slideshow" parameterType="Product">
+        update product set product_slideshow=#{slideshow}where product_id=#{id}
+    </update>
+
+    <update id="update_product_isComment" parameterType="Product">
+        update product set product_isComment=#{isComment}where product_id=#{id}
+    </update>
+
+    <update id="update_product_QRcode" parameterType="Product">
+        update product set product_QRcode=#{QRcode}where product_id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from product where product_id=#{id}
+    </delete>
+
+</mapper>
